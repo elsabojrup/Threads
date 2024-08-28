@@ -8,6 +8,11 @@ public class ThreadsMain {
         Thread t2 = new Thread(new Task(), "Thread 2");
 
         t1.start();
+        try{
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         t2.start();
     }
 }
