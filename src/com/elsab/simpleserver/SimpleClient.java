@@ -10,8 +10,20 @@ import java.util.Scanner;
 public class SimpleClient {
 
     public static void main(String[] args){
-        String serverAddress = "localhost";
-        int serverPort = 12345;
+        if(args.length != 2)
+        {
+            System.out.println("Usage: java SimpleClient <server-address> <port>");
+            return;
+        }
+        String serverAddress = args[0];
+        int serverPort;
+
+        try{
+            serverPort = Integer.parseInt(args[1]);
+        } catch(NumberFormatException e) {
+            System.out.println("Invalid port number.");
+            return;
+        }
 
         try(Socket socket = new Socket(serverAddress, serverPort);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
