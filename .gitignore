@@ -1,0 +1,13 @@
+# Compiled class files
+*.class
+
+# Directory for storing compiled classes
+out/
+build/
+target/
+
+# IDE-specific files
+.idea/
+*.iml
+*.project
+*.classpath
